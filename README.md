@@ -10,11 +10,14 @@ data set is relatively small.
 
 ## Running the model for inference
 
-Suppose you're in the subdirectory "training", you can run the following command
+Suppose you're in the subdirectory `training`, you can run the following command
 to run the inference code:
 
 ```
-python3 ../my-recognition/my-recognition.py --labels=data/homeproducts/labels.txt models/homeproducts/resnet18.onnx inputfilename
+python3 ../my-recognition/my-recognition.py \
+	--labels=data/homeproducts/labels.txt \
+	models/homeproducts/resnet18.onnx \
+	inputfilename
 ```
 
 where the parameter `models/homeproducts/resnet18.onnx` can be replaced with your custom model, and 
@@ -23,7 +26,7 @@ where the parameter `models/homeproducts/resnet18.onnx` can be replaced with you
 ## Re-train the model
 
 I have pre-trained the model based on `resnet18`. The model is located at directory
-training/models/homeproducts - see files `resnet18.onnx.*`.
+`training/models/homeproducts` - see files `resnet18.onnx.*`.
 
 I used the script `train.py` from `jetson-inference` to train the `resnet18` model. The command used is:
 
@@ -31,7 +34,7 @@ I used the script `train.py` from `jetson-inference` to train the `resnet18` mod
 python3 train.py --model-dir=models/homeproducts data/homeproducts
 ```
 
-when I run this command, suppose we are at directory `jetson-inference/python/training/classification`, and 
+when I run this command, I am at directory `jetson-inference/python/training/classification`, and 
 symbol links for `models/homeproducts` and `data/homeproducts` are setup to the right directories.
 
 If anyone wants to re-train the model, you can try changing the parameters to `train.py` to see how it goes.
